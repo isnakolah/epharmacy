@@ -1,0 +1,26 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
+
+version: '3.4'
+
+services:
+  epharmacyrestapi:
+    image: epharmacyrestapi
+    container_name: epharmacy_api
+    build:
+      context: .
+      dockerfile: ./Dockerfile.prod
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    restart: unless-stopped
+    expose:
+      - 80
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.epharmacy-api.rule=(Host(`${EPHARMACY_DOMAIN}`) && PathPrefix(`/api`))'
+      - 'traefik.http.routers.epharmacy-api.tls=true'
+      - 'traefik.http.routers.epharmacy-api.tls.certresolver=letsencrypt'
+
+networks:
+  default:
+    external:
+      name: callcenterdevponea_api-network

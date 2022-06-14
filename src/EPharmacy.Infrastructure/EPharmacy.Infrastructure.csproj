@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>EPharmacy.Infrastructure</RootNamespace>
+    <AssemblyName>EPharmacy.Infrastructure</AssemblyName>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<!--TODO Add nullable true-->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" Version="6.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EPharmacy.Application\EPharmacy.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<Using Include="EPharmacy.Application.Common.Interfaces" />
+	<Using Include="EPharmacy.Application.Common.Models" />
+	<Using Include="EPharmacy.Application.Common.Settings" />
+	<Using Include="EPharmacy.Application.Common.Models.Roles" Static="true" />
+  </ItemGroup>
+
+</Project>

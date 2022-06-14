@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>EPharmacy.Application</RootNamespace>
+    <AssemblyName>EPharmacy.Application</AssemblyName>
+    <ImplicitUsings>true</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Pharmacy\**" />
+    <Compile Remove="WorkOrders\Provider\Commands\_DTOs\**" />
+    <EmbeddedResource Remove="Pharmacy\**" />
+    <EmbeddedResource Remove="WorkOrders\Provider\Commands\_DTOs\**" />
+    <None Remove="Pharmacy\**" />
+    <None Remove="WorkOrders\Provider\Commands\_DTOs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="FluentValidation" Version="10.3.6" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.3.6" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EPharmacy.Domain\EPharmacy.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="EPharmacy.Application.Common.Interfaces" />
+    <Using Include="EPharmacy.Application.Common.Models" />
+    <Using Include="EPharmacy.Application.Common.Security" />
+    <Using Include="EPharmacy.Application.Common.Models.Roles" Static="true" />
+  </ItemGroup>
+</Project>

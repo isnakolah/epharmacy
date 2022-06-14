@@ -1,0 +1,7 @@
+﻿Hi #UserName,
+
+A prescription has been submitted to your Ponea e-Pharmacy portal.
+Please review it and submit your quotation.
+
+Thanks,
+Ponea Health

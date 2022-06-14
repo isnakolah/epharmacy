@@ -1,0 +1,76 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<RootNamespace>EPharmacy.RESTApi</RootNamespace>
+		<AssemblyName>EPharmacy.RESTApi</AssemblyName>
+		<UserSecretsId>efad71c6-743c-4b87-9de8-f26d77146f6d</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>..\..</DockerfileContext>
+		<DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<Authors>Daniel Nakolah</Authors>
+		<Description>This is the Restful api service for the epharmacy platform</Description>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FluentValidation.AspNetCore" Version="10.3.6" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="6.0.1" />		
+		<PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="6.0.1" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.OpenApi" Version="1.2.3" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\EPharmacy.Application\EPharmacy.Application.csproj" />
+		<ProjectReference Include="..\EPharmacy.Infrastructure\EPharmacy.Infrastructure.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Using Include="EPharmacy.Application.Common.Models" />
+		<Using Include="EPharmacy.RESTApi.Controllers.v1" />
+		<Using Include="Microsoft.AspNetCore.Mvc" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\.editorconfig" Link="solutionFiles/.editorconfig" />
+		<None Include="..\..\Dockerfile" Link="solutionFiles/Dockerfile" />
+		<None Include="..\..\Jenkinsfile" Link="solutionFiles/Jenkinsfile" />
+		<None Include="..\..\Dockerfile.prod" Link="solutionFiles/Dockerfile.prod" />
+		<None Include="..\..\docker-compose.debug.yml" Link="solutionFiles/docker-compose.debug.yml" />
+		<None Include="..\..\docker-compose.prod.yml" Link="solutionFiles/docker-compose.prod.yml" />
+		<None Include="..\..\docker-compose.yml" Link="solutionFiles/docker-compose.yml" />
+		<None Include="..\..\README.md" Link="solutionFiles/README.md" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="SolutionFiles\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <_ContentIncludedByDefault Remove="Pages\Error.cshtml" />
+	  <_ContentIncludedByDefault Remove="Pages\Shared\_LoginPartial.cshtml" />
+	  <_ContentIncludedByDefault Remove="Pages\_ViewImports.cshtml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Update="appsettings.Development.json">
+	    <DependentUpon>appsettings.json</DependentUpon>
+	  </Content>
+	  <Content Update="appsettings.Local.json">
+	    <DependentUpon>appsettings.json</DependentUpon>
+	  </Content>
+	  <Content Update="appsettings.Production.json">
+	    <DependentUpon>appsettings.json</DependentUpon>
+	  </Content>
+	  <Content Update="appsettings.Staging.json">
+	    <DependentUpon>appsettings.json</DependentUpon>
+	  </Content>
+	</ItemGroup>
+</Project>
